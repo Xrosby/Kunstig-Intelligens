@@ -23,40 +23,44 @@ def minmax_decision(state):
 
 
 def is_terminal(state):
-    """
-    returns True if the state is either a win or a tie (board full)
-    :param state: State of the checkerboard. Ex: [0; 1; 2; 3; X; 5; 6; 7; 8]
-    :return:
-    """
-    pass
+    return same_elements(state)
+
+
+def same_elements(iterator):
+    return len(set(iterator)) <= 1
 
 
 def utility_of(state):
-    """
-    returns +1 if winner is X (MAX player), -1 if winner is O (MIN player), or 0 otherwise
-    :param state: State of the checkerboard. Ex: [0; 1; 2; 3; X; 5; 6; 7; 8]
-    :return:
-    """
-    pass
+    if len(state) % 2 == 0:
+        return 0
+    else:
+        return 1
 
 
 def successors_of(state):
+    list_of_successor_states = []
+    print("State", state)
+
+
     """
-    returns a list of tuples (move, state) as shown in the exercise slides
-    :param state: State of the checkerboard. Ex: [0; 1; 2; 3; X; 5; 6; 7; 8]
-    :return:
+    REWRITE MINMAX DESCISION TO FIX THIS
     """
-    pass
+
+    for pile in state:
+        for i in range(0, len(pile)):
+            print(i)
+            if i != pile and i != pile/2:
+                list_of_successor_states.append((i, pile-i))
+
+    return list_of_successor_states
 
 
 def display(state):
-    print("-----")
-    for c in [0, 3, 6]:
-        print(state[c + 0], state[c + 1], state[c + 2])
+    print(state)
 
 
 def main():
-    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    board = [15]
     while not is_terminal(board):
         board[minmax_decision(board)] = 'X'
         if not is_terminal(board):
