@@ -2,8 +2,9 @@ import random
 
 
 p_mutation = 0.2
-num_of_generations = 30
+num_of_generations = 100
 
+pop_max = 8
 
 def genetic_algorithm(population, fitness_fn, minimal_fitness):
     for generation in range(num_of_generations):
@@ -19,12 +20,15 @@ def genetic_algorithm(population, fitness_fn, minimal_fitness):
             if random.uniform(0, 1) < p_mutation:
                 child = mutate(child)
 
-            for list_child in child:
-                new_population.add(list_child)
+            remove_weakest_children(population, fitness_fn)
+
+            new_population.add(child)
 
         # Add new population to population, use union to disregard
         # duplicate individuals
+
         population = population.union(new_population)
+
 
         fittest_individual = get_fittest_individual(population, fitness_fn)
 
@@ -43,6 +47,25 @@ def print_population(population, fitness_fn):
         print("{} - fitness: {}".format(individual, fitness))
 
 
+def remove_weakest_children(population, fitness_fn):
+
+
+    while len(population) > pop_max:
+        weakestChild = None
+        worst_fitness = 999999
+
+        for child in population:
+            cur_fitness = fitness_fn(child)
+            if cur_fitness < worst_fitness:
+                weakestChild = child
+                worst_fitness = cur_fitness
+
+        population.remove(weakestChild)
+
+
+
+
+    return population
 
 
 
@@ -109,10 +132,22 @@ def fitness_fn_positive(state):
 
 
 def reproduce(mother, father):
-    '''
-    Reproduce two individuals with single-point crossover
-    Return the child individual
-    '''
+
+    fatherFirst = round(random.uniform(0, 1))
+    index = round(random.uniform(1, 7))
+    child = None
+
+    if fatherFirst == 1:
+        child = father[0:index] + mother[index:]
+        # child = (father[0:index], mother[index:])
+    else:
+        child = mother[0:index] + father[index:]
+
+    return tuple(child)
+
+    """
+
+
     selectedChildren = []
 
     motherList = list(mother)
@@ -120,60 +155,34 @@ def reproduce(mother, father):
 
     crossoverPoint = random.randint(0, 7)
 
+
     for i in range(0, crossoverPoint):
-        motherList[i] = fatherList[i]
-        fatherList[i] = motherList[i]
+        selectedChildren.append(motherList[i])
+    for i in range(crossoverPoint+1, 7):
+        selectedChildren.append(fatherList[i])
 
 
-    selectedChildren.append(tuple(motherList))
-    selectedChildren.append(tuple(fatherList))
+    #selectedChildren.append(tuple(motherList))
+    #selectedChildren.append(tuple(fatherList))
 
 
     return selectedChildren
-
+    """
 
 
 def mutate(individual):
-
-
-
     individualList = list(individual)
-
-    print(len(individualList))
-    print("SIZE OF LIST")
 
     shouldMutate = random.randint(0,100) < 50
 
-
-    for individual_in_list in individualList:
-        individual_in_list = list(individual_in_list)
-        if shouldMutate:
-            randomIndex = random.randint(0,7)
-            randomNumber = random.randint(1,8)
-            individual_in_list[randomIndex] = randomNumber
-
-
-
-
-
+    if shouldMutate:
+        randomIndex = random.randint(0,7)
+        randomNumber = random.randint(1,8)
+        individualList[randomIndex] = randomNumber
 
     return tuple(individualList)
 
-"""
 
-    randomBitToMutate = random.randint(0, 2)
-
-    if individualList[randomBitToMutate] == 1:
-        individualList[randomBitToMutate] = 0
-    else:
-        individualList[randomBitToMutate] = 1
-
-
-    '''
-    Mutate an individual by randomly assigning one of its bits
-    Return the mutated individual
-    '''
-"""
 
 
 
@@ -219,6 +228,7 @@ def random_selection(population, fitness_fn_positive):
             selected.append(ordered_population[i])
         if i == second_selected_index:
             selected.append(ordered_population[i])
+    print("SELECTED: ", selected)
 
     return selected
 
@@ -240,7 +250,7 @@ def get_initial_population(n, count):
 
 
 def main():
-    minimal_fitness = 7
+    minimal_fitness = 8*7
 
     # Curly brackets also creates a set, if there isn't a colon to indicate a dictionary
     initial_population = {
