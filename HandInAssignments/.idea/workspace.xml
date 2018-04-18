@@ -11,7 +11,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/HandInAssignments$nim_game.coverage" NAME="nim_game Coverage Results" MODIFIED="1523531423041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/HandInAssignments$tictactoe_template.coverage" NAME="tictactoe_template Coverage Results" MODIFIED="1523532014492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HandInAssignments$tictactoe_template.coverage" NAME="tictactoe_template Coverage Results" MODIFIED="1524054962746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture 7" />
+    <SUITE FILE_PATH="coverage/HandInAssignments$nim_game_MANGLER.coverage" NAME="nim_game_MANGLER Coverage Results" MODIFIED="1524054608605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture 7" />
     <SUITE FILE_PATH="coverage/HandInAssignments$constraints_template.coverage" NAME="constraints_template Coverage Results" MODIFIED="1523881878882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HandInAssignments$ga_template_on_queen_problem.coverage" NAME="ga_template_on_queen_problem Coverage Results" MODIFIED="1524053051197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture 6" />
     <SUITE FILE_PATH="coverage/HandInAssignments$exercise_astar.coverage" NAME="exercise_astar Coverage Results" MODIFIED="1524044693338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture 5" />
@@ -28,8 +29,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nim_game_MANGLER.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Lecture 7/nim_game_MANGLER.py">
+      <file leaf-file-name="nim_game.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Lecture 7/nim_game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tictactoe_template.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lecture 7/tictactoe_template.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nim_alpha_beta.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lecture 7/nim_alpha_beta.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -66,6 +87,9 @@
         <option value="$PROJECT_DIR$/Lecture 6/homework_queensfitness_module.py" />
         <option value="$PROJECT_DIR$/Lecture 6/exercise_fitness.py" />
         <option value="$PROJECT_DIR$/Lecture 6/homework_queens_fitness.py" />
+        <option value="$PROJECT_DIR$/Lecture 7/nim_alpha_beta.py" />
+        <option value="$PROJECT_DIR$/Lecture 7/nim_game_MANGLER.py" />
+        <option value="$PROJECT_DIR$/Lecture 7/nim_game.py" />
       </list>
     </option>
   </component>
@@ -151,26 +175,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ga_template_on_queen_problem">
-    <configuration name="exercise_greedy_first" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture 5" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HandInAssignments" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture 5/exercise_greedy_first.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.tictactoe_template">
     <configuration name="ga_template" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -228,39 +233,58 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="queens_fitness" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="nim_game_MANGLER" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture 6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture 7" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HandInAssignments" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture 6/queens_fitness.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture 7/nim_game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="tictactoe_template" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture 7" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HandInAssignments" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture 7/tictactoe_template.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.exercise_greedy_first" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ga_template" />
-      <item index="2" class="java.lang.String" itemvalue="Python.queens_fitness" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ga_template_on_queen_problem" />
-      <item index="4" class="java.lang.String" itemvalue="Python.homework_queensfitness_module" />
+      <item index="0" class="java.lang.String" itemvalue="Python.ga_template" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ga_template_on_queen_problem" />
+      <item index="2" class="java.lang.String" itemvalue="Python.homework_queensfitness_module" />
+      <item index="3" class="java.lang.String" itemvalue="Python.nim_game_MANGLER" />
+      <item index="4" class="java.lang.String" itemvalue="Python.tictactoe_template" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ga_template_on_queen_problem" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ga_template" />
-        <item index="2" class="java.lang.String" itemvalue="Python.homework_queensfitness_module" />
-        <item index="3" class="java.lang.String" itemvalue="Python.queens_fitness" />
-        <item index="4" class="java.lang.String" itemvalue="Python.exercise_greedy_first" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tictactoe_template" />
+        <item index="1" class="java.lang.String" itemvalue="Python.nim_game_MANGLER" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ga_template_on_queen_problem" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ga_template" />
+        <item index="4" class="java.lang.String" itemvalue="Python.homework_queensfitness_module" />
       </list>
     </recent_temporary>
   </component>
@@ -587,10 +611,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lecture 7/nim_game_MANGLER.py">
+    <entry file="file://$PROJECT_DIR$/Lecture 7/tictactoe_template.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lecture 7/nim_alpha_beta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lecture 7/nim_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
           <folding />
         </state>
       </provider>

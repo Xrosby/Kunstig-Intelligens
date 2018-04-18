@@ -22,33 +22,14 @@ def minmax_decision(state):
     return action
 
 
+
 def is_terminal(state):
 
-    distinct_element = False
+    if len(state) % 2 == 0:
+        return 0
+    else:
+        return 1
 
-
-    current_element = int(state[0])
-    skipped_elements = 0
-    skipped_elementIndex = 0
-
-    for i in range(1, len(state)):
-        if state[i] == current_element:
-            current_element = state[i]
-        else:
-            skipped_elements += 1
-            skipped_elementIndex = i
-
-
-    state.remove(skipped_elementIndex)
-
-
-
-    if skipped_elements == 1 and state[0] == 1:
-        distinct_element = True
-
-
-
-    return distinct_element
 
 
 
@@ -62,18 +43,8 @@ def utility_of(state):
 
 def successors_of(state):
     list_of_successor_states = []
-    print("State", state)
 
-
-    """
-    REWRITE MINMAX DESCISION TO FIX THIS
-    """
-
-    for pile in state:
-        for i in range(0, pile):
-            print(i)
-            if i != pile and i != pile/2:
-                list_of_successor_states.append((i, pile-i))
+        
 
     return list_of_successor_states
 
@@ -81,14 +52,34 @@ def successors_of(state):
 def display(state):
     print(state)
 
+def split(state, pile_index, split_index):
+
+
+    new_piles = []
+    pile_to_split = state[pile_index]
+
+    state.remove(pile_index)
+
+    first_pile = split_index
+    second_pile = pile_to_split - split_index
+
+    new_piles.append(first_pile)
+    new_piles.append(second_pile)
+
+
+    return state
+
 
 def main():
-    board = [15, 1]
-    while not is_terminal(board):
-        board[minmax_decision(board)] = 2
-    if not is_terminal(board):
-        display(board)
-        board[(int(input("Your nove? ")))] = 2
+    state = [15]
+    while not is_terminal(state):
+        state[minmax_decision(state)]
+    if not is_terminal(state):
+        display(state)
+        pile_index = input("Which pile to split? (Number in row")
+        split_index = input("Where do you want to split(index of pile)")
+        state = split(state, pile_index, split_index)
+
 
 
     """    while not is_terminal(board):
