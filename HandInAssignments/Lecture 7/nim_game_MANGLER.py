@@ -25,10 +25,8 @@ def minmax_decision(state):
 
 def is_terminal(state):
 
-    if len(state) % 2 == 0:
-        return 0
-    else:
-        return 1
+    
+    pass
 
 
 
@@ -43,10 +41,25 @@ def utility_of(state):
 
 def successors_of(state):
     list_of_successor_states = []
+    return_states = []
 
-        
+    for pile in state:
+        if pile >= 3:
+            i = 0
+            if pile %2 == 0:
+                i = (pile / 2)
+            else:
+                i = round(pile/2)
+        for j in range (1, i):
 
-    return list_of_successor_states
+            list_of_successor_states = state[:]
+            list_of_successor_states.remove(pile)
+            list_of_successor_states.append(j)
+            list_of_successor_states.append(pile-j)
+            return_states.append(list_of_successor_states)
+
+
+    return return_states
 
 
 def display(state):
