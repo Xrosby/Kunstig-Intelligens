@@ -1,7 +1,6 @@
 A = 'A'
 B = 'B'
-C = 'C'
-D = 'D'
+
 
 SUCK = 'Suck'
 DIRTY = 'Dirty'
@@ -17,15 +16,13 @@ NOOP = 'NoOp'
 
 state = {}
 action = None
-model = {A: None, B: None, C: None, D: None}  # Initially ignorant
+model = {A: None, B: None}  # Initially ignorant
 
 RULE_ACTION = {
     1: SUCK,
     2: RIGHT,
     3: LEFT,
-    4: DOWN,
-    5: UP,
-    6: NOOP
+    4: NOOP
 
 }
 
@@ -33,20 +30,14 @@ rules = {
     (A, DIRTY): 1,
     (A, CLEAN): 2,
     (B, DIRTY): 1,
-    (B, CLEAN): 4,
-    (C, DIRTY): 1,
-    (C, CLEAN): 3,
-    (D, DIRTY): 1,
-    (D, CLEAN): 5,
-    (A, B, C, D, CLEAN): 6
+    (B, CLEAN): 3,
+    (A, B, CLEAN): 4
 }
 # Ex. rule (if location == A && Dirty then rule 1)
 
 Environment = {
     A: DIRTY,
     B: DIRTY,
-    C: DIRTY,
-    D: DIRTY,
     CURRENT: A
 }
 
@@ -63,8 +54,8 @@ def RULE_MATCH(state, rules):  # Match rule for a given state
 def UPDATE_STATE(state, action, percept):
     (location, status) = percept
     state = percept
-    if model[A] == model[B] == model[C] == model[D] == CLEAN:
-        state = (A, B, C, D, CLEAN)
+    if model[A] == model[B] == CLEAN:
+        state = (A, B, CLEAN)
         # Model consulted only for A and B Clean
     model[location] = status  # Update the model state
     return state
@@ -89,11 +80,7 @@ def Actuators(action):  # Modify Environment
         Environment[location] = CLEAN
     elif action == RIGHT and location == A:
         Environment[CURRENT] = B
-    elif action == DOWN and location == B:
-        Environment[CURRENT] = C
-    elif action == LEFT and location == C:
-        Environment[CURRENT] = D
-    elif action == UP and location == D:
+    elif action == LEFT and location == B:
         Environment[CURRENT] = A
 
 

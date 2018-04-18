@@ -1,12 +1,9 @@
 A = 'A'
 B = 'B'
-C = 'C'
-D = 'D'
+
 
 LEFT = 'Left'
 RIGHT = 'Right'
-UP = 'Up'
-DOWN = 'Down'
 DIRTY = 'Dirty'
 CLEAN = 'Clean'
 SUCK = 'Suck'
@@ -15,8 +12,6 @@ CURRENT = 'Current'
 Environment = {
     A: 'Dirty',
     B: 'Dirty',
-    C: 'Dirty',
-    D: 'Dirty',
     'Current': A
 }
 
@@ -27,11 +22,8 @@ def REFLEX_VACUUM_AGENT(loc_st):  # Determine action
     if loc_st[0] == A:
         return RIGHT
     if loc_st[0] == B:
-        return DOWN
-    if loc_st[0] == C:
         return LEFT
-    if loc_st[0] == D:
-        return UP
+
 
 def Sensors():  # Sense Environment
     location = Environment[CURRENT]
@@ -44,12 +36,9 @@ def Actuators(action):  # Modify Environment
         Environment[location] = CLEAN
     elif action == RIGHT and location == A:
         Environment[CURRENT] = B
-    elif action == DOWN and location == B:
-        Environment[CURRENT] = C
-    elif action == LEFT and location == C:
-        Environment[CURRENT] = D
-    elif action == UP and location == D:
+    elif action == LEFT and location == B:
         Environment[CURRENT] = A
+
 
 
 def run(n):  # run the agent through n steps
