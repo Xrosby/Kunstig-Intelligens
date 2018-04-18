@@ -51,15 +51,10 @@ def reproduce(mother, father):
     randomChildInteger = random.randint(0, 100)
     randomBitInteger = random.randint(0, 2)
 
-
-
-    print(mother)
-
     motherList = list(mother)
     fatherList = list(father)
 
     if randomChildInteger < 50:
-
         motherList[randomBitInteger] = fatherList[randomBitInteger]
         return tuple(motherList);
     else:
@@ -90,7 +85,6 @@ def random_selection(population, fitness_fn):
 
     totalFitness = 0
 
-    print(totalFitness)
 
 
     selected = []
@@ -112,7 +106,6 @@ def random_selection(population, fitness_fn):
     selected.append(individualsToSelection[first_selection])
     selected.append(individualsToSelection[second_selection])
 
-    print(first_selection + second_selection)
 
 
 
