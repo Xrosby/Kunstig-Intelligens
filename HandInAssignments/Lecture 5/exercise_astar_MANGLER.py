@@ -1,3 +1,6 @@
+
+infinity = float("inf")
+
 class Node:  # Node has only PARENT_NODE, STATE, DEPTH
     def __init__(self, state, parent=None, depth=0):
         self.STATE = state
@@ -28,13 +31,12 @@ def TREE_SEARCH():
     initial_node = Node(INITIAL_STATE)
     fringe = INSERT(initial_node, fringe)
     while fringe is not None:
-        node = REMOVE_FIRST(fringe)
+        node = REMOVE_LOWEST_COST(fringe)
         if node.STATE == GOAL_STATE:
             return node.path()
         children = EXPAND(node)
         print(children)
-        cheapest_child = FIND_CHEAPEST_CHILD(children)
-        fringe = INSERT(cheapest_child, fringe)
+        fringe = INSERT_ALL(children, fringe)
         print("fringe: {}".format(fringe))
 
 
@@ -78,16 +80,20 @@ def INSERT_ALL(list, queue):
     return queue
 
 
-def REMOVE_FIRST(queue):
-    node = None
-    if not queue:
-        print('empty queue')
-    else:
-        node = queue.pop()
-    return node
+def REMOVE_LOWEST_COST(queue):
+
+    result = None
+    lowest_cost = infinity
+    for node in queue:
+        if node[1] + node.HEURISTIC < lowest_cost:
+            lowest_cost = node[1] + node.HEURISTIC
+            result = node
+    queue.remove(result)
+
+    return result
 
 def successor_fn(state):  # Lookup list of successor states
-    return STATE_SPACE[state]  # successor_fn( 'C' ) returns ['F', 'G']
+    return STATE_SPACE[state[0]]  # successor_fn( 'C' ) returns ['F', 'G']
 
 A = ('A', 6)
 B = ('B', 5)
@@ -103,12 +109,21 @@ K = ('K', 0)
 L = ('L', 0)
 
 
+"""HERE I WANT TO ADD A COST TO GO FROM ONE STATE TO ANOTHER"""
 INITIAL_STATE = A
 GOAL_STATE = K or L
-STATE_SPACE = {A: [B, C, D],
-               B: [F, E], C: [E],
-               D: [H, I, J], E: [G, H], F: [G], G: [K],
-               H: [K, L], I: [L], J: [], L: [], K: []}
+STATE_SPACE = {A: [(B,1), C, D],
+               B: [F, E],
+               C: [E],
+               D: [H, I, J],
+               E: [G, H],
+               F: [G],
+               G: [K],
+               H: [K, L],
+               I: [L],
+               J: [],
+               L: [],
+               K: []}
 
 
 

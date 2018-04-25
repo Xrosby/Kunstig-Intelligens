@@ -6,7 +6,6 @@ def minmax_decision(state):
         v = -infinity
         for state in successors_of(state):
             v = max(v, min_value(state))
-        print('V: ' + str(v))
         return v
 
     def min_value(state):
@@ -18,13 +17,12 @@ def minmax_decision(state):
         return v
 
     infinity = float('inf')
-    action, state = argmax(successors_of(state), lambda a: min_value(a))
-    return action
+    state = argmax(successors_of(state), lambda a: min_value(a))
+    return state
 
 
 
 def is_terminal(state):
-    print(state)
 
     for pile in state:
         if pile >= 3:
@@ -35,13 +33,13 @@ def is_terminal(state):
 
 def utility_of(state):
     if len(state) % 2 == 0:
-        return 0
+        return -1
     else:
         return 1
 
 
 def successors_of(state):
-    list_of_successor_states = []
+
     return_states = []
 
     for pile in state:
@@ -50,14 +48,14 @@ def successors_of(state):
             if pile %2 == 0:
                 index = int(pile / 2)
             else:
-                index = int(pile/2)
-            for j in range(1, index):
+                index = int(pile/2 + 1)
 
-                list_of_successor_states = state[:]
-                list_of_successor_states.remove(pile)
-                list_of_successor_states.append(j)
-                list_of_successor_states.append(pile-j)
-                return_states.append(list_of_successor_states)
+            for j in range(1, index):
+                new_state = state[:]
+                new_state.remove(pile)
+                new_state.append(j)
+                new_state.append(pile-j)
+                return_states.append(new_state)
 
 
     return return_states
@@ -70,11 +68,19 @@ def display(state):
 def main():
     state = [15]
     while not is_terminal(state):
-        state[minmax_decision(state)]
-    if not is_terminal(state):
-        display(state)
-        pile_index = input("Which pile to split? (Number in row")
-        split_index = input("Where do you want to split(index of pile)")
+        state = minmax_decision(state)
+        if not is_terminal(state):
+            display(state)
+            pile_to_split = int(input("which pile do you want to split(index)?"))
+            pile = state[pile_to_split]
+            pile_one = int(input("What size should the first pile be?"))
+            pile_two = pile -  pile_one
+
+            state.remove(pile)
+            state.append(pile_one)
+            state.append(pile_two)
+            display(state)
+
 
 
 
