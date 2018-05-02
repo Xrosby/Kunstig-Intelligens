@@ -8,6 +8,7 @@ class Node:  # Node has only PARENT_NODE, STATE, DEPTH
         self.DEPTH = depth
         self.HEURISTIC = state[1]
 
+
     def path(self):  # Create a list of nodes from the root to this node.
         current_node = self
         path = [self]
@@ -62,7 +63,7 @@ def EXPAND(node):
     children = successor_fn(node.STATE)
     for child in children:
         s = Node(child)  # create node for each in state list
-        s.STATE = child  # e.g. result = 'F' then 'G' from list ['F', 'G']
+        s.STATE = child[0]  # e.g. result = 'F' then 'G' from list ['F', 'G']
         s.PARENT_NODE = node
         s.DEPTH = node.DEPTH + 1
         successors = INSERT(s, successors)
@@ -85,15 +86,18 @@ def REMOVE_LOWEST_COST(queue):
     result = None
     lowest_cost = infinity
     for node in queue:
-        if node[1] + node.HEURISTIC < lowest_cost:
-            lowest_cost = node[1] + node.HEURISTIC
+        print("NODE: ", node)
+        if node.STATE[1] + node.HEURISTIC < lowest_cost:
+            lowest_cost = node.STATE[1] + node.HEURISTIC
             result = node
     queue.remove(result)
 
     return result
 
 def successor_fn(state):  # Lookup list of successor states
-    return STATE_SPACE[state[0]]  # successor_fn( 'C' ) returns ['F', 'G']
+
+    print("STATESPACE: ", STATE_SPACE[state])
+    return STATE_SPACE[state]  # successor_fn( 'C' ) returns ['F', 'G']
 
 A = ('A', 6)
 B = ('B', 5)
@@ -112,15 +116,15 @@ L = ('L', 0)
 """HERE I WANT TO ADD A COST TO GO FROM ONE STATE TO ANOTHER"""
 INITIAL_STATE = A
 GOAL_STATE = K or L
-STATE_SPACE = {A: [(B,1), C, D],
-               B: [F, E],
-               C: [E],
-               D: [H, I, J],
-               E: [G, H],
-               F: [G],
-               G: [K],
-               H: [K, L],
-               I: [L],
+STATE_SPACE = {A: [(B, 1), (C, 2), (D, 4)],
+               B: [(F, 5), (E, 4)],
+               C: [(E, 1)],
+               D: [(H, 1), (I, 4), (J, 2)],
+               E: [(G, 2), (H, 3)],
+               F: [(G, 1)],
+               G: [(K, 6)],
+               H: [(K, 6), (L, 5)],
+               I: [(L, 3)],
                J: [],
                L: [],
                K: []}

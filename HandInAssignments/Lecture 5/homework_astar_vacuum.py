@@ -60,7 +60,7 @@ def EXPAND(node):
     children = successor_fn(node.STATE)
     for child in children:
         s = Node(child)  # create node for each in state list
-        s.STATE = child  # e.g. result = 'F' then 'G' from list ['F', 'G']
+        s.STATE = child[0]  # e.g. result = 'F' then 'G' from list ['F', 'G']
         s.PARENT_NODE = node
         s.DEPTH = node.DEPTH + 1
         successors = INSERT(s, successors)
@@ -94,23 +94,43 @@ DIRTY = "Dirty"
 A = "A"
 B = "B"
 C = "C"
-D = "D"
+
 
 AC = (A, CLEAN)
 BC = (B, CLEAN)
 CC = (C, CLEAN)
-DC = (D, CLEAN)
 
 AD = (A, DIRTY)
 BD = (B, DIRTY)
 CD = (C, DIRTY)
-DD = (D, DIRTY)
+
+#states
+ADBDCD = (AD, BD, CD, 10)
+ACBDCD = (AC, BD, CD, 6)
+ACBCCD = (AC, BC, CD, 8)
+ACBCCC = (AC, BC, CC, 0)
+ADBCCD = (AC, BC, CD, 4)
+ADBCCC = (AD, BC, CC, 6)
+ACBDCC = (AD, BD, CC, 4)
 
 
 
-INITIAL_STATE = [AD, BD, CD, DD]
-GOAL_STATE = [AC, BC, CC, DC]
-STATE_SPACE = {}
+
+INITIAL_STATE = ADBDCD
+GOAL_STATE = ACBCCC
+
+"""FILL IN STATESPACE"""
+STATE_SPACE = {
+
+    ADBDCD: [(ACBDCD, 1), (ADBCCD, 2)],
+    ACBDCD: [(ACBCCD, 1), (ACBDCC, 2)],
+    ADBCCD: [(ACBCCD, 4), (ADBCCC, 2)],
+    ACBCCD: [(ACBCCC, 2)],
+    ACBDCC: [(ACBCCC, 2)],
+    ADBCCC: []
+
+
+}
 
 
 
