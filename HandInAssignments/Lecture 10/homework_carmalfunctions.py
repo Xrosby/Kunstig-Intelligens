@@ -393,7 +393,7 @@ def car_malfunction():
     vibrations = Variable('Vibrations', ('false', 'true'), t5, [damaged_tire])
     high_consumption = Variable('High Consumption', ('false', 'true'), t6, [damaged_tire, electronics_malfunction, fuel_tank_leaking])
 
-    variables = [damaged_tire, fuel_tank_leaking, electronics_malfunction, slow_max_speed]
+    variables = [damaged_tire, fuel_tank_leaking, electronics_malfunction, slow_max_speed, vibrations, high_consumption]
 
     # creation of Network
     network = BayesianNetwork()
